@@ -1,0 +1,70 @@
+
+
+li, a, button {
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+header {
+  height: 30px;
+  /* height: 2%; */
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px 8%;
+}
+
+header img.nav__logo {
+  cursor: pointer;
+  margin-right: auto;
+}
+
+header nav, header .btn {
+  margin-left: 1em
+}
+
+.nav__links {
+  list-style: none;
+}
+
+.nav__links li {
+  /* display: inline-block; */
+  /* padding: 0 20px; */
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: #117BB5;
+}
+  
+.nav header .btn-primary {
+  background-image: linear-gradient(#117BB5, #00A5FF);
+  color: white;
+  padding: 9px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  /* font-size: 1.2em;
+  font-weight: 400; */
+  border: 0;
+}
+
+.nav header .btn-secondary {
+  background-image: linear-gradient(#FF5827, #FF9B36);
+  color: white;
+  padding: 9px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  /* font-size: 1.2em;
+  font-weight: 400; */
+  border: 0;
+}
+
+
+
