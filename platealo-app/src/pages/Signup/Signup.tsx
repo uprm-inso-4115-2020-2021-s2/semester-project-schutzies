@@ -1,12 +1,12 @@
 import React from 'react'
-import './Signin.css'
+import './Signup.css'
 
-const Signin = () => {
+const Signup = () => {
   return (
-    <div>
-
+    <div className='signup'>
+      <h1>Signup component is Crackalaken ^_^</h1>
     </div>
   )
 }
 
-export default Signin
+export default Signup
