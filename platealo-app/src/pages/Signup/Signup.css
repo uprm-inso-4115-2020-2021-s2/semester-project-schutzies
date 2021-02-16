@@ -1,0 +1,18 @@
+.signup {
+  display: flex;
+  height: 100vh;
+}
+
+.signup__left {
+  flex: 1;
+  background: lightgreen;
+}
+.signup__right {
+  flex: 1;
+  background: lightskyblue;
+  display: flex;
+}
+
+.signup__logo {
+  margin: auto;
+}
