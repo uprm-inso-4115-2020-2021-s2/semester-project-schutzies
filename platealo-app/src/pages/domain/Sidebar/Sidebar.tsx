@@ -1,10 +1,22 @@
 import React from 'react'
 import './Sidebar.css'
+import Navlink from '../../../components/Navbar/Navlink'
 
-const Sidebar = () => {
+const Sidebar = ({ url }: any) => {
   return (
     <div className='sidebar'>
-      <h1>Sidebar Component</h1>
+      <ul>
+        <li>
+          <Navlink path={`${url}/search-recipes`}>
+            Search Recipes Component
+          </Navlink>
+        </li>
+        <li>
+          <Navlink path={`${url}/byingredient`}>
+            By Ingredient
+          </Navlink>
+        </li>
+      </ul>
     </div>
   )
 }

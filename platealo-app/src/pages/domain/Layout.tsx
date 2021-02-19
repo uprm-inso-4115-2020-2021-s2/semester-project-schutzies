@@ -3,9 +3,12 @@ import './Layout.css'
 import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../pages/domain/Sidebar/Sidebar'
 import SideProfile from '../../pages/domain/SideProfile/SideProfile'
-import ByIngredient from '../../pages/domain/ByIngredient/ByIngredient'
+import ContentView from '../../pages/domain/ContentView/ContentView'
+import { BrowserRouter as Switch, Route, useRouteMatch } from 'react-router-dom'
 
 const Layout = () => {
+  let { path, url } = useRouteMatch();
+
   return (
     <div className="layout">
       <Navbar />
@@ -13,10 +16,17 @@ const Layout = () => {
         <SideProfile />
       </div>
       <aside className="layout__sidebar">
-        <Sidebar />
+        <Sidebar url={url} />
       </aside>
-      <main className="layout__view">
-        <ByIngredient />
+      <main className="layout__contentView">
+        <Switch>
+          <Route exact path={path}>
+            <h3>DEFAULT ONE</h3>
+          </Route>
+          <Route path={`${path}/:view`}>
+            <ContentView />
+          </Route>
+        </Switch>
       </main>
     </div>
   )
