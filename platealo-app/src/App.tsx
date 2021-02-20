@@ -8,21 +8,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className='app' style={{ height: window.innerHeight }}>
+    <div className='app'>
       <Router>
         <Switch>
-          <Route path='/' exact>
-            <Home />
-          </Route>
-          <Route path='/signin' exact>
-            <Signin />
-          </Route>
-          <Route path='/signup' exact>
-            <Signup />
-          </Route>
-          <Route path='/app'>
-            <Layout />
-          </Route>
+          <Route exact path='/' component={Home} />
+          <Route path='/signup' component={Signup} />
+          <Route path='/app' component={Layout} />
+          {/* redirect  from /app to /app/byingredient  by default */}
         </Switch>
       </Router>
     </div>
