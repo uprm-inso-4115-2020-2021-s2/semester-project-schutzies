@@ -33,7 +33,8 @@ module.exports.datastores = {
   ***************************************************************************/
 
   default: {
-
+    adapter: 'sails-mongo',
+    url: 'mongodb+srv://dbGarcia:<Pl@teal0>@platealodb.e8bc3.mongodb.net/<platealodb>?retryWrites=true&w=majority'
     /***************************************************************************
     *                                                                          *
     * Want to use a different database during development?                     *
