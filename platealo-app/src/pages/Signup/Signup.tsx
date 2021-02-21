@@ -1,12 +1,20 @@
 import React from 'react'
-import './Signin.css'
+import './Signup.css'
+import PlatealoLogo from '../../assets/platealo_logo_transparent.png'
+import PlatealoBackgroundImg from '../../assets/platealo_background.jpg'
 
-const Signin = () => {
+const Signup = () => {
   return (
-    <div>
-
+    <div className='signup'>
+      <div className='signup__left'>
+        Signup Form
+      </div>
+      <div className='signup__right'>
+        <img className='signup__backImg' src={PlatealoBackgroundImg} />
+        <img className='signup__logo' src={PlatealoLogo} width='250' height='250' alt='Platealo Logo' />
+      </div>
     </div>
   )
 }
 
-export default Signin
+export default Signup

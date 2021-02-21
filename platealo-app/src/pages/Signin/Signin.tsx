@@ -1,12 +1,12 @@
 import React from 'react'
-import './Login.css'
+import './Signin.css'
 
-const Login = () => {
+const Signin = () => {
   return (
-    <div>
-
+    <div className='signin'>
+      <h1>Signin component is not Crackalaken!</h1>
     </div>
   )
 }
 
-export default Login
+export default Signin
