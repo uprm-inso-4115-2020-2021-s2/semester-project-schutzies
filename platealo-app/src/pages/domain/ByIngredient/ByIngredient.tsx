@@ -3,8 +3,8 @@ import './ByIngredient.css'
 
 const ByIngredient = () => {
   return (
-    <div>
-
+    <div className='byIngredient'>
+      <h1>By Ingredient Component </h1>
     </div>
   )
 }

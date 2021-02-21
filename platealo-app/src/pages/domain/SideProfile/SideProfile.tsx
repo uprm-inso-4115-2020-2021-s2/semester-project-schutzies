@@ -3,8 +3,8 @@ import './SideProfile.css'
 
 const SideProfile = () => {
   return (
-    <div>
-
+    <div className='sideProfile'>
+      <h2>Side Profile Component</h2>
     </div>
   )
 }
