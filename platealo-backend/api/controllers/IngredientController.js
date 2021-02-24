@@ -1,6 +1,6 @@
 module.exports = {
-    returnAll: function(req,res){
-        var ingredients = Ingredient.find({collection:'ingredient'});
+    returnAll: async function(req,res){
+        var ingredients = await Ingredient.find();
         return res.send(ingredients);
     }
 }
