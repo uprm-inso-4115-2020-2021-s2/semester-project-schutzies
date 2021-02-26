@@ -1,0 +1,21 @@
+.sidebar {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar .sidebar__ul .sidebar__li {
+  height: 80px;
+}
+
+.sidebar__li a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  color: black;
+  font-size: 22px;
+}
+
+.sidebar__li a svg {
+  padding: 1px 1em 0;
+}

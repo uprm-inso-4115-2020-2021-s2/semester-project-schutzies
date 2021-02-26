@@ -1,68 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import './ContentView.css'
-import { RouteComponentProps, useParams, useRouteMatch } from "react-router-dom";
-import ByIngredient from '../ByIngredient/ByIngredient';
+import { useParams } from "react-router-dom";
 import SearchRecipes from '../SearchRecipes/SearchRecipes';
+import ByIngredient from '../ByIngredient/ByIngredient';
 
-// type Props = {}
 export interface ContentViewProps {
   views: any;
-  handleSelected: any;
-  // selectedView: string;
 }
 
-// type ContentViewProps = {
-//   // match: any;
-//   selected: any;
-// }
-// type ContentViewProps = Props & RouteComponentProps<{
-//   selected: any
-// }>
+/** returns the component to be viewed */
+const handleComponent: any = (view: string) => {
+  switch (view) {
+    case 'search-recipes':
+      return <SearchRecipes />
+    case 'byingredient':
+      return <ByIngredient />
+  }
+}
 
-// const View = (view: any) => {
-//   console.log('view', view)
-//   if (view.includes('search-recipes'))
-//     return <SearchRecipes />
-//   else if (view.includes('byingredient'))
-//     return <ByIngredient />
-// }
-// { props }: any
-
-const ContentView = ({ handleSelected, views }: ContentViewProps) => {
-  // const [selectedView, setSelectedView] = useState('search-recipes');
+const ContentView = ({ views }: ContentViewProps) => {
+  // the selected component to view from sidebar
   const [selectedView, setSelectedView] = useState('search-recipes');
+  let { view } = useParams<{ view: string }>();
 
-  let { contentView } = useParams<{ contentView: string }>();
-  let { url, path } = useRouteMatch();
-
-
-  const view = views.find(({ view }: any) => view === contentView)
+  // the information about the content view
+  const contentObj = views.find(({ contentView }: any) => contentView === view)
 
   useEffect(() => {
-    console.log(' ')
-
-    console.log('selectedView', selectedView)
-    console.log('CV view', view.view)
-    setSelectedView(view.view)
+    setSelectedView(contentObj['contentView'])
     console.log('- selectedView', selectedView)
-    console.log('- CV view', view.view)
+    console.log('- CV view', contentObj)
   })
 
 
-  handleSelected(view.view)
-
-  // console.log('CV url', url)
-  // console.log('CV path', path)
-  console.log('selectedView', selectedView)
-  // console.log('CV view', view)
-  console.log('CV params_contentView', contentView)
-
   return (
     <div className='contentView'>
-      <h2>{selectedView}</h2>
-      {/* {() => handleSelected(view.view)} */}
-      {/* <SearchRecipes /> */}
-      {/* <> */}
+      {handleComponent(selectedView)}
     </div>
   )
 }
