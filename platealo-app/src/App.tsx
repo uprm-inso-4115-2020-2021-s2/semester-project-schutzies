@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import Signin from './pages/Signin/Signin'
 import Signup from './pages/Signup/Signup'
 import Layout from './pages/domain/Layout';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 function App() {
   return (
@@ -14,7 +14,11 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/signup' component={Signup} />
           <Route path='/app' component={Layout} />
-          {/* redirect  from /app to /app/byingredient  by default */}
+          {/* <Route path='/app/:view' component={Layout} /> */}
+          <Redirect from="/app" to="/app/byingredient" />
+          <Route render={
+            () => <h1>Page Not Found</h1>
+          } />
         </Switch>
       </Router>
     </div>
