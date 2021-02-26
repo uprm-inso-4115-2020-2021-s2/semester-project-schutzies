@@ -14,11 +14,13 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/signup' component={Signup} />
           <Route path='/app' component={Layout} />
+          {/* <Redirect from="/app" to="/app" /> */}
           {/* <Route path='/app/:view' component={Layout} /> */}
-          <Redirect from="/app" to="/app/byingredient" />
-          <Route render={
-            () => <h1>Page Not Found</h1>
-          } />
+
+
+          <Route>
+            <h1>Page Not Found</h1>
+          </Route>
         </Switch>
       </Router>
     </div>
