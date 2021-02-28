@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap'
 
 const Home = () => {
   return (
-    <div className='home'>
+    <div className='home' style={{ height: window.innerHeight }}>
       <Navbar />
       <div className='home__hero'>
         <img src={PlatealoBackgroundImg} alt='Photo by Ella Olsson from Pexels' />

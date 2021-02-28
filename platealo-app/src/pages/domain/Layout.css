@@ -1,7 +1,7 @@
 .layout {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-template-rows: 10% 0 0 15%; /* equivalent: grid-template-rows: 10% 5% 5% 5% 10% 15% 25% 25%; */
+  grid-template-rows: 100px 0 0 15%; /* equivalent: grid-template-rows: 10% 5% 5% 5% 10% 15% 25% 25%; */
   grid-template-areas:
           "sideProfile header"
           "sideProfile view"
@@ -11,7 +11,7 @@
           "sidebar view"
           "sidebar view"
           "sidebar view";
-  height: 100%;
+  height: 100vh;
 }
 
 .layout__sideProfile {
@@ -23,7 +23,7 @@
   background: #E0E0E0;
 }
 
-.layout__view {
+.layout__contentView {
   grid-area: view;
   background: #F3F3F3;
 }
