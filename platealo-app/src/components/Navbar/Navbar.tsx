@@ -29,6 +29,9 @@ const Navbar = () => {
       <Navlink path='/signup'>
         <Button variant='secondary'>Sign Up</Button>
       </Navlink>
+      <Navlink path='/signin'>
+        <Button variant='secondary'>Sign In</Button>
+      </Navlink>
     </header>
   )
 }
