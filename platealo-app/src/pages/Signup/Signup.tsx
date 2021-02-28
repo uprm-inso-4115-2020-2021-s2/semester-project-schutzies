@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './Signup.css'
 import PlatealoLogo from '../../assets/platealo_logo_transparent.png'
 import PlatealoBackgroundImg from '../../assets/platealo_background.jpg'
+import Navlink from '../../components/Navbar/Navlink'
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -33,7 +34,7 @@ const Signup = () => {
                   type = 'text'
                   name='username'
                   className = 'form-input'
-                  placeholder = 'Username'/>
+                  placeholder = ' Username'/>
             </label>
           </div>
           <div className='form-inputs'>
@@ -42,7 +43,7 @@ const Signup = () => {
                     type = 'email'
                     name='email'
                     className = 'form-input'
-                    placeholder = 'Email'/>
+                    placeholder = ' Email'/>
               </label>
           </div>
           <div className='form-inputs'>
@@ -51,7 +52,7 @@ const Signup = () => {
                     type = 'password'
                     name='password'
                     className = 'form-input'
-                    placeholder = 'Password'/>
+                    placeholder = ' Password'/>
               </label>
           </div>
           <div className='form-inputs'>
@@ -60,11 +61,11 @@ const Signup = () => {
                     type = 'password'
                     name='confirm password'
                     className = 'form-input'
-                    placeholder = 'Confirm Password'/>
+                    placeholder = ' Confirm Password'/>
               </label>
           </div>
           <div>
-            <button className="form-input-btn" type='submit'>
+            <button className="form-input-btn" type='submit' >
               Sign up
             </button>
           </div>
@@ -78,7 +79,10 @@ const Signup = () => {
       </div>
       <div className='signup__right'>
         <img className='signup__backImg' src={PlatealoBackgroundImg} />
-        <img className='signup__logo' src={PlatealoLogo} width='500' height='500' alt='Platealo Logo' />
+        
+        <Navlink path='/'>
+          <img className='signup__logo' src={PlatealoLogo} width='500' height='500' alt='Platealo Logo'  />
+        </Navlink>
       </div>
     </div>
   )
