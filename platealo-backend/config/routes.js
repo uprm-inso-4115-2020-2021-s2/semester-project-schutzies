@@ -20,7 +20,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  'GET /ingredients': 'ingredientController.returnAll'
+  'GET /ingredients': 'ingredientController.returnAll',
+  'GET /recipes': 'recipeController.findRecipes'
 
   /***************************************************************************
   *                                                                          *
