@@ -1,47 +1,8 @@
-li, a, button {
-  font-weight: 500;
-  font-size: 16px;
-  text-decoration: none;
+.navbar-nav a .btn {
+  margin: 0 1em;
 }
 
-header {
-  height: 40px !important; /* pixel perfect with domain layout's grid-template-rows */
-  background-color: white;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 30px 5%;
-}
-
-header nav, header .btn {
-  margin-left: 1.5em;
-  white-space: nowrap;
-}
-
-header section {
-  cursor: pointer;
-  margin-right: auto;
-  padding-top: 7px;
-}
-
-.nav__links {
-  list-style: none;
-}
-
-.nav__links li {
-  display: inline-block;
-  padding: 0 20px;
-}
-
-.nav__links li a {
-  transition: all 0.3s ease 0s;
-}
-
-.nav__links li a:hover {
-  color: #117BB5;
-}
-  
-header .btn-primary {
+.navbar-nav a .btn-primary {
   background-image: linear-gradient(#117BB5, #00A5FF);
   color: white;
   padding: 9px 25px;
@@ -51,7 +12,7 @@ header .btn-primary {
   border: 0;
 }
 
-header .btn-secondary {
+.navbar-nav a .btn-secondary {
   background-image: linear-gradient(#FF5827, #FF9B36);
   color: white;
   padding: 9px 25px;

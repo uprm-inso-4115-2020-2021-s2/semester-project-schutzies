@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home'
 import Signin from './pages/Signin/Signin'
 import Signup from './pages/Signup/Signup'
