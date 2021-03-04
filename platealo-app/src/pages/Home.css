@@ -37,6 +37,10 @@
   line-height: 2.5em;
 }
 
+.home__content .btn {
+  font-size: 22px !important;
+}
+
 .home__cook {
   color: #FF9B36;
   font-weight: 800;

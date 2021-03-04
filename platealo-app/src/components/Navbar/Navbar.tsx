@@ -3,34 +3,29 @@ import './Navbar.css'
 import PlatealoLogo from '../../assets/platealo_logo_transparent.png'
 // import { ReactComponent as PlatealoLogo } from '../../assets/platealo_logo_transparent.svg'
 import Navlink from './Navlink'
-import { Button } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap'
 
-const Navbar = () => {
+const NavbarView = () => {
   return (
-    <header>
-      <section>
-        <Navlink path='/'>
-          <img className='nav__logo' src={PlatealoLogo} width='90' height='90' alt='Platealo Logo' />
-        </Navlink>
-
-      </section>
-      <nav>
-        <ul className='nav__links'>
-          <li>
-            <Navlink path='/'>
-              About Us
-            </Navlink>
-          </li>
-        </ul>
-      </nav>
-      {/* <Navlink path='/signin'>
-          <Button>Sign In</Button>
-        </Navlink> */}
-      <Navlink path='/signup'>
-        <Button variant='secondary'>Sign Up</Button>
-      </Navlink>
-    </header>
+    <Navbar>
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto ml-5">
+          <Navlink path='/'>
+            <img className='nav__logo' src={PlatealoLogo} width='90' height='90' alt='Platealo Logo' />
+          </Navlink>
+        </Nav>
+        <Nav className='mr-5'>
+          {/* <Navlink path="/aboutus">About Us</Navlink> */}
+          <Navlink path='/signup'>
+            <Button variant='secondary'>Sign Up</Button>
+          </Navlink>
+          <Navlink path='/signin'>
+            <Button variant='secondary'>Sign In</Button>
+          </Navlink>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
 
-export default Navbar
+export default NavbarView
