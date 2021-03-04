@@ -15,3 +15,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+li, a, button {
+  text-decoration: none !important;
+  list-style: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
