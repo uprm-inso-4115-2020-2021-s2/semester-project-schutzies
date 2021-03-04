@@ -4,6 +4,7 @@ import Navlink from '../../../components/Navbar/Navlink'
 import { useRouteMatch } from 'react-router-dom'
 import { ReactComponent as ListIcon } from '../../../assets/svg/icon_list.svg'
 import { ReactComponent as SearchIcon } from '../../../assets/svg/icon_search.svg'
+import { Search, ListCheck } from 'react-bootstrap-icons';
 
 interface MenuItem {
   title: string,
@@ -28,9 +29,9 @@ const menuItems: MenuItem[] = [
 const handleIcon = (iconName: string) => {
   switch (iconName) {
     case 'search':
-      return <SearchIcon width='40' height='40' />;
+      return <Search width='70' height='70' />;
     case 'list':
-      return <ListIcon width='40' height='40' />
+      return <ListCheck width='70' height='70' />
   }
 }
 
