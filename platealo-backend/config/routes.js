@@ -21,7 +21,6 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   'GET /ingredients': 'ingredientController.returnAll'
-
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
