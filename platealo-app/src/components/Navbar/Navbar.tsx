@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './Navbar.css'
 import PlatealoLogo from '../../assets/platealo_logo_transparent.png'
-// import { ReactComponent as PlatealoLogo } from '../../assets/platealo_logo_transparent.svg'
 import Navlink from './Navlink'
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap'
 
