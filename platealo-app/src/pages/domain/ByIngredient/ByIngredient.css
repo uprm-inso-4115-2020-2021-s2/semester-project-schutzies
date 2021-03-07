@@ -1,0 +1,46 @@
+.byIngredient h2 {
+  color: #117BB5;
+}
+
+.byIngredient .input-group {
+  /* width: 90%; */
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.byIngredient .input-group-text {
+  border-radius: 10px;
+}
+
+.byIngredient .form-control, .byIngredient .input-group-prepend {
+  height: calc(2em + 0.75em + 2px);
+  box-shadow: 0 8px 12px 0 rgba(63, 48, 48, 0.2);
+  border-radius: 10px;
+}
+
+.byIngredient__upperCards {
+  margin-top: 15px;
+}
+
+.byIngredient__recipes {
+  margin-top: 12px;
+}
+
+.byIngredient__upperCards,
+.byIngredient__recipes {
+  display: flex;
+  gap: 2%;
+}
+
+.byIngredient__upperCards .card {
+  height: 300px;
+  border-radius: 10px;
+}
+
+.byIngredient__leftCard {
+  flex: 6;
+}
+
+.byIngredient__rightCard {
+  flex: 4;
+}
