@@ -34,7 +34,7 @@
 
 .recipePreview__ingredientList {
   table-layout: fixed;
-  width: 160px;
+  width: 100%;
   height: 217px;
   white-space: nowrap;
   overflow-x: hidden;
