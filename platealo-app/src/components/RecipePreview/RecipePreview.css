@@ -79,7 +79,7 @@ p.recipePreview__description {
 }
 
 /* Scrollbar's Width, Track, Handle, and Handle:hover respectively */
-::-webkit-scrollbar { width: 4px }
-::-webkit-scrollbar-track { background: #f1f1f1 }
-::-webkit-scrollbar-thumb { background: #888 }
-::-webkit-scrollbar-thumb:hover { background: #555 }
+.recipePreview ::-webkit-scrollbar { width: 4px }
+.recipePreview ::-webkit-scrollbar-track { background: #f1f1f1 }
+.recipePreview ::-webkit-scrollbar-thumb { background: #888 }
+.recipePreview ::-webkit-scrollbar-thumb:hover { background: #555 }
