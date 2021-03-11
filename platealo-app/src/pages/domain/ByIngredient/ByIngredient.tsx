@@ -55,8 +55,9 @@ const ByIngredient = () => {
       </Form.Row>
 
       <div className='byIngredient__buttons d-flex pt-4 pb-4'>
-        {ingredients.map((ingredient: Ingredient) =>
+        {ingredients.map((ingredient: Ingredient, i: number) =>
           <Button
+            key={i}
             className='byIngredient__chipButton d-flex align-items-center mr-3 mb-3'
             onClick={() => handleIngredient(ingredient)}
           >
