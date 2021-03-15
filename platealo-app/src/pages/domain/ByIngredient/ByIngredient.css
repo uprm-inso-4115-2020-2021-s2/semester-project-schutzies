@@ -1,0 +1,99 @@
+.byIngredient h2 {
+  color: #117BB5;
+}
+
+.byIngredient .input-group {
+  width: 90%;
+  /* margin: 0 auto; */
+  margin-top: 15px;
+}
+
+.byIngredient .input-group-text {
+  border-radius: 10px;
+}
+
+.byIngredient .form-control, .byIngredient .input-group-prepend {
+  height: calc(2em + 0.75em + 2px);
+  box-shadow: 0 8px 12px 0 rgba(63, 48, 48, 0.2);
+  border-radius: 10px;
+}
+
+.byIngredient__upperCards,
+.byIngredient__recipes {
+  display: flex;
+  gap: 2%;
+}
+
+.byIngredient__upperCards .card {
+  height: 300px;
+  border-radius: 10px;
+}
+
+.byIngredient__upperCards { margin-top: 15px }
+.byIngredient__recipes { margin-top: 12px }
+.byIngredient__leftCard { flex: 6 }
+.byIngredient__rightCard { flex: 4 }
+.byIngredient__chipButton span { padding: 0 9px 2px 0 }
+
+.byIngredient__buttons {
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.byIngredient__selectedButtons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* gap: 10px; */
+  grid-auto-rows: minmax(20px, auto);
+}
+
+
+.byIngredient__selectedIngredients {
+  width: 90%;
+}
+
+
+.byIngredient__chipButton.btn-secondary {
+  border-radius: 10px;
+  color: #595959;
+  background-color: rgba(255, 155, 54, 0.30);
+  border-color: rgba(255, 155, 54, 0.30);
+  place-self: center stretch;
+}
+
+.byIngredient__chipButton.btn-primary {
+  color: #595959;
+  background-color: rgba(10, 193, 138, 0.30);
+  border-color: rgba(10, 193, 138, 0.30);
+}
+
+.byIngredient__chipButton.btn-primary:hover {
+  /* color: white;
+  background-color: rgba(10, 193, 138, 0.90);
+  border-color: rgba(10, 193, 138, 0.90); */
+  
+  background-color: white;
+  border-color: rgba(10, 193, 138, 0.90);
+}
+
+.byIngredient__chipButton.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  background-color: rgba(10, 193, 138, 0.90);
+  border-color: rgba(10, 193, 138, 0.90);
+}
+
+.byIngredient__chipButton.btn-secondary:hover {
+  /* color: white; */
+  background-color: white;
+  border-color: rgba(255, 155, 54, 0.90);
+}
+
+.byIngredient__chipButton.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+  background-color: rgba(255, 155, 54, 0.90);
+  border-color: rgba(255, 155, 54, 0.90);
+}
+
+.byIngredient__searchRecipes.btn-secondary {
+  background-color: rgba(255, 155, 54, 0.90);
+  border-color: rgba(255, 155, 54, 0.90);
+  border-radius: 10px;
+}

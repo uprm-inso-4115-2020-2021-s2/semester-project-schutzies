@@ -36,9 +36,9 @@ const RecipePreview = () => {
           <span>6 of 9</span>
         </div>
         <div className="recipePreview__ingredientList">
-          {ingredients.map(ingredient => {
+          {ingredients.map((ingredient: string, index: number) => {
             return (
-              <div className="recipePreview__ingredient">
+              <div key={index} className="recipePreview__ingredient">
                 <span>{ingredient}</span>
               </div>
             )
