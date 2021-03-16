@@ -7,7 +7,7 @@ const SearchRecipes = () => {
     <div className='searchRecipes'>
       <h2>SEARCH RECIPES</h2>
       <hr style={{ marginTop: '-6px' }} />
-      <RecipePreview />
+      {/* <RecipePreview /> */}
     </div>
   )
 }
