@@ -1,6 +1,12 @@
 import React from 'react'
 import './RecipePreview.css'
 import Card from 'react-bootstrap/Card'
+import Ingredient from '../../models/Ingredient'
+import Recipe from '../../models/Recipe'
+
+export interface RecipePreviewProps {
+  recipe: Recipe;
+}
 
 const ingredients = [
   'Cheddar Cheese',
@@ -20,37 +26,42 @@ const ingredients = [
 
 const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa. In rutrum quis risus quis sollicitudin. Pellentesque non eros ante. Vestibulum sed tristique massa. Quisque et feugiat risus, eu tristique felis. Pellentesque habitant...'
 
-const RecipePreview = () => {
+// const RecipePreview = ({ recipe }: any) => {
+const RecipePreview = ({ recipe }: RecipePreviewProps) => {
+  console.log('recipe', recipe)
 
   const truncate = (str: string) => {
-    return str.substr(0, 181) + '...';
+    return (str === undefined) ? '' : str.substr(0, 181) + '...';
   }
 
   return (
     <Card className='recipePreview'>
       <div className='recipePreview__left'>
         <p className='text-center mt-3'>
-          INGREDIENTS
+          Ingredients
         </p>
         <div className="recipePreview__amountBar" style={{ width: '67%', background: '#00AA77', paddingLeft: '-1px' }}>
-          <span>6 of 9</span>
+          <span>{(recipe?.ingredients.length)} of 9</span>
+          {/* <span>5 of 9</span> */}
         </div>
         <div className="recipePreview__ingredientList">
-          {ingredients.map((ingredient: string, index: number) => {
+          {recipe?.ingredients.map((ingredient: Ingredient, i: number) => {
             return (
-              <div key={index} className="recipePreview__ingredient">
-                <span>{ingredient}</span>
+              <div key={i} className="recipePreview__ingredient">
+                <span>{ingredient.name}</span>
               </div>
             )
           })}
         </div>
       </div>
       <div className='recipePreview__right'>
-        <p className='text-center mt-3'>
-          DESCRIPTION
+        <p className='recipePreview__descriptionHeader text-center mt-3'>
+          {recipe?.name}
         </p>
+        <hr />
         <p className='recipePreview__description'>
-          {truncate(description)}
+          {truncate(recipe?.recipeDescription)}
+          {/* {truncate("Description boknjs faof aisjfajf lkasd flkasdjflj aklsj fl kasj ksjn fkajshfkja fjkasndfjaks fkjd")} */}
         </p>
       </div>
     </Card>
