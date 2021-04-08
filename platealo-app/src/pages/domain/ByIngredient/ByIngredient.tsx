@@ -117,12 +117,18 @@ const ByIngredient = () => {
 
   const handleSearchRecipes = () => {
     const fetchRecipes = async () => {
-      return new Promise((resolve, reject) =>
+      return new Promise((resolve, reject) => {
+        let ids = 'ids='
+        for (let ingre of selectedIngredients)
+          ids += ingre['id'] + ','
+
         axios.get(`/recipes?ids=603418bec9695c013853a67b,603424dd519bf90063346e76,603424e9519bf90063346e77,603424f5519bf90063346e78,60342674519bf90063346e79`)
+          // axios.get(`/recipes?${ids}`)
           .then((data: any) => {
             setRecipes(data['data'])
             console.log('recipes', data['data'])
-          }))
+          })
+      })
     }
     fetchRecipes();
   }
