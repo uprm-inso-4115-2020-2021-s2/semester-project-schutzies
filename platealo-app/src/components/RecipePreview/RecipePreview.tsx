@@ -6,6 +6,7 @@ import Recipe from '../../models/Recipe'
 
 export interface RecipePreviewProps {
   recipe: Recipe;
+  handleRecipeView: any
 }
 
 const ingredients = [
@@ -27,15 +28,13 @@ const ingredients = [
 const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa. In rutrum quis risus quis sollicitudin. Pellentesque non eros ante. Vestibulum sed tristique massa. Quisque et feugiat risus, eu tristique felis. Pellentesque habitant...'
 
 // const RecipePreview = ({ recipe }: any) => {
-const RecipePreview = ({ recipe }: RecipePreviewProps) => {
-  console.log('recipe', recipe)
-
+const RecipePreview = ({ recipe, handleRecipeView }: RecipePreviewProps) => {
   const truncate = (str: string) => {
     return (str === undefined) ? '' : str.substr(0, 181) + '...';
   }
 
   return (
-    <Card className='recipePreview'>
+    <Card className='recipePreview' onClick={() => handleRecipeView(recipe)}>
       <div className='recipePreview__left'>
         <p className='text-center mt-3'>
           Ingredients

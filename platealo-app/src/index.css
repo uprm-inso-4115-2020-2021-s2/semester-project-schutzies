@@ -24,3 +24,16 @@ li, a, button {
 a:hover {
   text-decoration: none !important;
 }
+
+.backButton {
+  color: #4C4C4C !important;
+}
+
+.circularBtn {
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.circularBtn:hover {
+  background-color: #38353510;
+}

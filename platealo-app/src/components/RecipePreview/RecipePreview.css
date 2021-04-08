@@ -4,6 +4,7 @@
   border-radius: 20px 20px 20px 0;
   background: white;
   box-shadow: 0 8px 12px 0 rgba(63, 48, 48, 0.2);
+  cursor: pointer;
 }
 
 .recipePreview.card {

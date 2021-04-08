@@ -15,12 +15,14 @@ const handleComponent: any = (view: string) => {
       return <SearchRecipes />
     case 'byingredient':
       return <ByIngredient />
+    case 'recipe-details':
+      return <ByIngredient />
   }
 }
 
 const ContentView = ({ views }: ContentViewProps) => {
   // the selected component to view from sidebar
-  const [selectedView, setSelectedView] = useState('search-recipes');
+  const [selectedView, setSelectedView] = useState('byingredient');
   let { view } = useParams<{ view: string }>();
 
   // the information about the content view
@@ -28,8 +30,8 @@ const ContentView = ({ views }: ContentViewProps) => {
 
   useEffect(() => {
     setSelectedView(contentObj['contentView'])
-    console.log('- selectedView', selectedView)
-    console.log('- CV view', contentObj)
+    // console.log('- selectedView', selectedView)
+    // console.log('- CV view', contentObj)
   })
 
 

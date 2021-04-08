@@ -5,6 +5,7 @@ import RecipePreview from '../../../components/RecipePreview/RecipePreview'
 import axios from 'axios'
 import Ingredient from '../../../models/Ingredient'
 import Recipe from '../../../models/Recipe'
+import RecipeDetails from '../RecipeDetails/RecipeDetails'
 // import { ingredients, selectedIngredients } from '../../../util/globalData/ingredients'
 import {
   Card,
@@ -15,6 +16,7 @@ import {
   Row,
   Col
 } from 'react-bootstrap'
+
 
 
 // export default interface Recipe {
@@ -66,6 +68,7 @@ const ByIngredient = () => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
   const [selectedIngredients, setSelectedIngredients] = useState<Ingredient[]>([])
   const [recipes, setRecipes] = useState<Recipe[]>([])
+  const [selectedRecipe, setSelectedRecipe] = useState<Recipe>()
 
   useEffect(() => {
     const fetchIngredients = async () => {
@@ -86,9 +89,6 @@ const ByIngredient = () => {
   }, [recipes])
 
 
-  /** Transfers the given ingredient from the 
-   *  ingredients list to the selected ingredient list. 
-   **/
   const addIngredient = (ingredient: Ingredient) => {
     // add the selected ingredient to ingredients list
     setSelectedIngredients((prev: Ingredient[]) =>
@@ -126,104 +126,114 @@ const ByIngredient = () => {
           // axios.get(`/recipes?${ids}`)
           .then((data: any) => {
             setRecipes(data['data'])
-            console.log('recipes', data['data'])
           })
       })
     }
     fetchRecipes();
   }
 
+  const handleBack = () => setSelectedRecipe(undefined)
+  const handleRecipeView = (recipe: Recipe) => setSelectedRecipe(recipe)
+
 
   return (
-    <div className='byIngredient'>
-      <h2>BY INGREDIENT</h2>
-      <hr style={{ marginTop: '-6px' }} />
+    <>
+      {selectedRecipe
+        ?
+        <RecipeDetails recipe={selectedRecipe} handleBack={handleBack} />
+        : (
+          <div className='byIngredient'>
+            <h2>BY INGREDIENT</h2>
+            <hr style={{ marginTop: '-6px' }} />
 
-      <Form.Row>
-        <Form.Group as={Col}>
-          <InputGroup>
-            <InputGroup.Prepend>
-              <InputGroup.Text>
-                <Search width='20' height='20' />
-              </InputGroup.Text>
-            </InputGroup.Prepend>
-            <Form.Control
-              type="text"
-              placeholder="Search Ingredient"
-            />
-          </InputGroup>
-        </Form.Group>
-      </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col}>
+                <InputGroup>
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>
+                      <Search width='20' height='20' />
+                    </InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <Form.Control
+                    type="text"
+                    placeholder="Search Ingredient"
+                  />
+                </InputGroup>
+              </Form.Group>
+            </Form.Row>
 
-      <div className='byIngredient__buttons d-flex pt-4 pb-4'>
-        {ingredients.map((ingredient: Ingredient, i: number) =>
-          <Button
-            key={i}
-            className='byIngredient__chipButton d-flex align-items-center mr-3 mb-3'
-            onClick={() => addIngredient(ingredient)}
-          >
-            <Plus width='30' height='30' />
-            <span>{ingredient['name']}</span>
-          </Button>
-        )}
-      </div>
+            <div className='byIngredient__buttons d-flex pt-4 pb-4'>
+              {ingredients.map((ingredient: Ingredient, i: number) =>
+                <Button
+                  key={i}
+                  className='byIngredient__chipButton d-flex align-items-center mr-3 mb-3'
+                  onClick={() => addIngredient(ingredient)}
+                >
+                  <Plus width='30' height='30' />
+                  <span>{ingredient['name']}</span>
+                </Button>
+              )}
+            </div>
 
-      {selectedIngredients.length === 0 ? null :
+            {selectedIngredients.length === 0 ? null :
 
-        <Card className='byIngredient__selectedIngredients p-3'>
-          <div className='byIngredient__selectedButtons'>
-            {selectedIngredients.map((ingredient: Ingredient, i: number) =>
-              <Button
-                key={i}
-                variant='secondary'
-                className='byIngredient__chipButton d-flex align-items-center mr-5 mb-3'
-                onClick={() => removeIngredient(ingredient)}
-              >
-                <Dash width='30' height='30' />
-                <span>{ingredient['name']}</span>
-              </Button>
-            )}
+              <Card className='byIngredient__selectedIngredients p-3'>
+                <div className='byIngredient__selectedButtons'>
+                  {selectedIngredients.map((ingredient: Ingredient, i: number) =>
+                    <Button
+                      key={i}
+                      variant='secondary'
+                      className='byIngredient__chipButton d-flex align-items-center mr-5 mb-3'
+                      onClick={() => removeIngredient(ingredient)}
+                    >
+                      <Dash width='30' height='30' />
+                      <span>{ingredient['name']}</span>
+                    </Button>
+                  )}
+                </div>
+
+                <Button
+                  variant='secondary'
+                  className='byIngredient__searchRecipes'
+                  onClick={() => handleSearchRecipes()}
+                >
+                  Search Recipes
+                </Button>
+              </Card>
+            }
+
+
+            <h2 style={{ marginTop: '50px' }}>RECIPES</h2>
+            <hr style={{ marginTop: '-6px' }} />
+
+            <div className='byIngredient__recipes pt-3'>
+              {recipes.map((recipe: Recipe, i: number) => {
+                return (
+                  <div key={i}>
+                    <RecipePreview recipe={recipe} handleRecipeView={handleRecipeView} />
+                    {(i % 3 === 0) ? <br /> : null}
+                  </div>
+                )
+              })}
+            </div>
+
+
+            {/* <div className='byIngredient__recipes pt-3'>
+            <RecipePreview key={2} recipe={'recipe 1'} />
+            <RecipePreview key={3} recipe={'recipe 1'} />
+            <br />
+            <RecipePreview key={4} recipe={'recipe 1'} />
+            <RecipePreview key={5} recipe={'recipe 1'} />
+            <RecipePreview key={6} recipe={'recipe 1'} />
+            <br />
+            <RecipePreview key={7} recipe={'recipe 1'} />
+            <RecipePreview key={8} recipe={'recipe 1'} />
+            <RecipePreview key={9} recipe={'recipe 1'} />
+          </div> */}
           </div>
-
-          <Button
-            variant='secondary'
-            className='byIngredient__searchRecipes'
-            onClick={() => handleSearchRecipes()}
-          >
-            Search Recipes
-          </Button>
-        </Card>
+        )
       }
-
-
-      <h2 style={{ marginTop: '50px' }}>RECIPES</h2>
-      <hr style={{ marginTop: '-6px' }} />
-
-      <div className='byIngredient__recipes pt-3'>
-        {recipes.map((recipe: Recipe, i: number) => {
-          return (
-            <>
-              <RecipePreview key={i} recipe={recipe} />
-              {(i % 3 === 0) ? <br /> : null}
-            </>
-          )
-        })}
-      </div>
-
-
-      {/* <div className='byIngredient__recipes pt-3'>
-        <RecipePreview key={2} recipe={'recipe 1'} />
-        <RecipePreview key={3} recipe={'recipe 1'} />
-        <br />
-        <RecipePreview key={4} recipe={'recipe 1'} />
-        <RecipePreview key={5} recipe={'recipe 1'} />
-        <RecipePreview key={6} recipe={'recipe 1'} />
-        <br />
-        <RecipePreview key={7} recipe={'recipe 1'} />
-        <RecipePreview key={8} recipe={'recipe 1'} />
-        <RecipePreview key={9} recipe={'recipe 1'} />
-      </div> */}
-    </div>
+    </>
   )
 }
 
