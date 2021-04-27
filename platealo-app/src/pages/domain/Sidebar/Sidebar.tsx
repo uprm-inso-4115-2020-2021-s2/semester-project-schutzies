@@ -15,24 +15,24 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   {
+    title: 'By Ingredient',
+    slug: 'byingredient',
+    iconName: 'list',
+  },
+  {
     title: 'Search Recipes',
     slug: 'search-recipes',
     iconName: 'search',
   },
-  {
-    title: 'By Ingredient',
-    slug: 'byingredient',
-    iconName: 'list',
-  }
 ]
 
 /** returns the icon component given the icon names */
 const handleIcon = (iconName: string) => {
   switch (iconName) {
-    case 'search':
-      return <Search width='70' height='70' />;
     case 'list':
       return <ListCheck width='70' height='70' />
+    case 'search':
+      return <Search width='70' height='70' />;
   }
 }
 

@@ -3,7 +3,8 @@
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 100px 0 0 15%; /* equivalent: grid-template-rows: 10% 5% 5% 5% 10% 15% 25% 25%; */
   grid-template-areas:
-          "sideProfile header"
+          /* "sideProfile header" */
+          "sideProfile view"
           "sideProfile view"
           "sideProfile view"
           "sideProfile view"
