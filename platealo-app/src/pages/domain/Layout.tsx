@@ -20,6 +20,7 @@ const contentViews = [
 
 const Layout = () => {
   let { path } = useRouteMatch();
+  console.log(path)
 
   return (
     <div className="layout">
@@ -31,9 +32,9 @@ const Layout = () => {
         <Sidebar />
       </aside>
       <main className="layout__contentView">
-        <Route path={`${path}/:view`}>
-          <ContentView views={contentViews} />
-        </Route>
+        {/* <Route path={`${path}/:view`}> */}
+        <ContentView views={contentViews} />
+        {/* </Route> */}
       </main>
     </div>
   )

@@ -15,7 +15,7 @@ const Home = () => {
           <div className='home__content'>
             <h1>Not sure what to <span className='home__cook'>COOK</span>?</h1>
             <p>Find your ideal <span className='home__recipe'>RECIPE</span> with what you have at home</p>
-            <Navlink path='/app'>
+            <Navlink path='/app/byingredient'>
               <Button>Let's Cook!</Button>
             </Navlink>
           </div>
