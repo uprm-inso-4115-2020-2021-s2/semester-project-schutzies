@@ -39,8 +39,8 @@ const RecipePreview = ({ recipe, handleRecipeView }: RecipePreviewProps) => {
         <p className='text-center mt-3'>
           Ingredients
         </p>
-        <div className="recipePreview__amountBar" style={{ width: '67%', background: '#00AA77', paddingLeft: '-1px' }}>
-          <span>{(recipe?.ingredients.length)} of 9</span>
+        <div className="recipePreview__amountBar" style={{ width: '100%', background: '#00AA77', paddingLeft: '-1px' }}>
+          <span>{(recipe?.ingredients.length)} of 5</span>
           {/* <span>5 of 9</span> */}
         </div>
         <div className="recipePreview__ingredientList">
