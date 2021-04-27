@@ -3,7 +3,7 @@ import './RecipeDetails.css'
 import Recipe from '../../../models/Recipe'
 import Ingredient from '../../../models/Ingredient'
 import { ChevronLeft } from 'react-bootstrap-icons';
-import { Button } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 
 export interface RecipeDetailsProps {
   recipe: Recipe;
@@ -11,12 +11,12 @@ export interface RecipeDetailsProps {
 }
 
 const RecipeDetails = ({ recipe, handleBack }: RecipeDetailsProps) => {
+  const [name, setName] = useState<string>(recipe.name)
   const [steps, setSteps] = useState<string[]>([])
   const [description, setDescription] = useState<string>(recipe.recipeDescription)
   const [ingredients, setIngredients] = useState<Ingredient[]>(recipe.ingredients)
   const [credit, setCredit] = useState<string>(recipe.credit)
   const [createdAt, setCreatedAt] = useState<Date>(new Date(recipe.createdAt))
-  console.log(createdAt)
 
   useEffect(() => {
     // set the recipe's list of steps state
@@ -35,8 +35,16 @@ const RecipeDetails = ({ recipe, handleBack }: RecipeDetailsProps) => {
       }
     }
 
+    console.log('name', name)
+    console.log('steps', steps)
+    console.log('description', description)
+    console.log('ingredients', ingredients)
+    console.log('credit', credit)
+    console.log('createdAt', credit)
+
+
     // set the recipe's description state
-    console.log(new Date(1614030498485))
+    // console.log('date', new Date(1614030498485))
   }, [])
 
   const consoleLogSteps = () => {
@@ -56,12 +64,53 @@ const RecipeDetails = ({ recipe, handleBack }: RecipeDetailsProps) => {
         </a>
       </div>
 
-      <Button
+      <main className='d-flex justify-content-between'>
+        <div className='receiptsDetails__left pr-4'>
+          {/* <Card style={{ width: '18rem' }}> */}
+          <Card className='mb-4'>
+            <Card.Body>
+              <Card.Title>{name}</Card.Title>
+              <Card.Text>
+                {description}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          {
+            steps?.map((step: string, i: number) =>
+              <Card key={i} className='mb-4'>
+                <Card.Body>
+                  <Card.Title>Step {i + 1}</Card.Title>
+                  <Card.Text>
+                    {step}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            )
+          }
+        </div>
+        <div className='receiptsDetails__right'>
+          <Card>
+            <Card.Body>
+              <Card.Title>Ingredients</Card.Title>
+              <Card.Text>
+                <ul>
+                  {
+                    ingredients?.map((ingre: any, i: number) => <li>{ingre['name']}</li>)
+                  }
+                </ul>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+      </main>
+
+
+      {/* <Button
         className='d-flex align-items-center mr-3 mb-3'
         onClick={() => consoleLogSteps()}
       >
         log steps
-      </Button>
+      </Button> */}
     </div>
   )
 }

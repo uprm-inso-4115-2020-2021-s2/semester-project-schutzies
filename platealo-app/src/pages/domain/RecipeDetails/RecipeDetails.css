@@ -1,0 +1,12 @@
+.receiptsDetails__left {
+  flex: 5
+}
+
+.receiptsDetails__right {
+  flex: 2
+}
+
+.receiptsDetails__right li {
+  list-style-type: square !important;
+  margin-left: 1.2em
+}
