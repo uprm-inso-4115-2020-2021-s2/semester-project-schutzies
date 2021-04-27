@@ -1,0 +1,12 @@
+
+.sideProfile__centering {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(50%);
+}
+
+/* .sideProfile__centering img {
+  cursor: pointer;
+} */
