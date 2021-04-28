@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './ByIngredient.css'
-import { Search, Plus, Dash } from 'react-bootstrap-icons'
+import { Filter, Plus, Dash } from 'react-bootstrap-icons'
 import RecipePreview from '../../../components/RecipePreview/RecipePreview'
 import axios from 'axios'
 import Ingredient from '../../../models/Ingredient'
@@ -66,6 +66,7 @@ const recipess: string[] = [
 
 const ByIngredient = () => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
+  const [filteredIngredients, setFilteredIngredients] = useState<Ingredient[]>([])
   const [selectedIngredients, setSelectedIngredients] = useState<Ingredient[]>([])
   const [recipes, setRecipes] = useState<Recipe[]>([])
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe>()
@@ -77,6 +78,7 @@ const ByIngredient = () => {
           .then((data: any) => {
             console.log('ingredients', data['data'])
             setIngredients(data['data'])
+            setFilteredIngredients(data['data'])
           })
       )
     }
@@ -96,15 +98,15 @@ const ByIngredient = () => {
     )
 
     // remove the ingredient from selected list
-    const ingredientsClone = [...ingredients];
-    const selectedIndex = ingredients.findIndex(({ name }: any) => name === ingredient['name'])
+    const ingredientsClone = [...filteredIngredients];
+    const selectedIndex = filteredIngredients.findIndex(({ name }: any) => name === ingredient['name'])
     ingredientsClone.splice(selectedIndex, 1)
-    setIngredients(ingredientsClone);
+    setFilteredIngredients(ingredientsClone);
   }
 
   const removeIngredient = (ingredient: Ingredient) => {
     // add the selected ingredient to selected list
-    setIngredients((prev: Ingredient[]) =>
+    setFilteredIngredients((prev: Ingredient[]) =>
       [...prev, ingredient]
     )
 
@@ -132,6 +134,16 @@ const ByIngredient = () => {
     fetchRecipes();
   }
 
+  const handleSearchIngredients: any = (e: any) => {
+    const text: string = e.target.value;
+    const filtered = ingredients.filter((ingre: Ingredient) => {
+      return ingre.name.includes(text)
+    })
+    console.log(filtered)
+
+    setFilteredIngredients(filtered)
+  }
+
   const handleBack = () => setSelectedRecipe(undefined)
   const handleRecipeView = (recipe: Recipe) => setSelectedRecipe(recipe)
 
@@ -151,19 +163,20 @@ const ByIngredient = () => {
                 <InputGroup>
                   <InputGroup.Prepend>
                     <InputGroup.Text>
-                      <Search width='20' height='20' />
+                      <Filter width='20' height='20' />
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
                     type="text"
-                    placeholder="Search Ingredient"
+                    placeholder="Filter Ingredient"
+                    onChange={(e) => handleSearchIngredients(e)}
                   />
                 </InputGroup>
               </Form.Group>
             </Form.Row>
 
             <div className='byIngredient__buttons d-flex pt-4 pb-4'>
-              {ingredients.map((ingredient: Ingredient, i: number) =>
+              {filteredIngredients.map((ingredient: Ingredient, i: number) =>
                 <Button
                   key={i}
                   className='byIngredient__chipButton d-flex align-items-center mr-3 mb-3'
