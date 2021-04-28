@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './ByIngredient.css'
-import { Search, Plus, Dash } from 'react-bootstrap-icons'
+import { Filter, Plus, Dash } from 'react-bootstrap-icons'
 import RecipePreview from '../../../components/RecipePreview/RecipePreview'
 import axios from 'axios'
 import Ingredient from '../../../models/Ingredient'
@@ -98,8 +98,8 @@ const ByIngredient = () => {
     )
 
     // remove the ingredient from selected list
-    const ingredientsClone = [...ingredients];
-    const selectedIndex = ingredients.findIndex(({ name }: any) => name === ingredient['name'])
+    const ingredientsClone = [...filteredIngredients];
+    const selectedIndex = filteredIngredients.findIndex(({ name }: any) => name === ingredient['name'])
     ingredientsClone.splice(selectedIndex, 1)
     setFilteredIngredients(ingredientsClone);
   }
@@ -163,12 +163,12 @@ const ByIngredient = () => {
                 <InputGroup>
                   <InputGroup.Prepend>
                     <InputGroup.Text>
-                      <Search width='20' height='20' />
+                      <Filter width='20' height='20' />
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
                     type="text"
-                    placeholder="Search Ingredient"
+                    placeholder="Filter Ingredient"
                     onChange={(e) => handleSearchIngredients(e)}
                   />
                 </InputGroup>
