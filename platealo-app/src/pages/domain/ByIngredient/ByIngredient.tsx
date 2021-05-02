@@ -1,7 +1,6 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 // import ByIngredientContext from '../../../store/byIngredientContext'
 import './ByIngredient.css'
-import axios from 'axios'
 import Ingredient from '../../../models/Ingredient'
 import Recipe from '../../../models/Recipe'
 import RecipeDetails from '../../../components/Recipes/RecipeDetails'
@@ -27,9 +26,8 @@ const ByIngredient = () => {
       const resData = await res.json()
       const loadedIngredients: Ingredient[] = []
 
-      for (const key in resData) {
+      for (const key in resData)
         loadedIngredients.push(resData[key])
-      }
 
       setIngredients(loadedIngredients)
       setFilteredIngredients(loadedIngredients)
@@ -78,11 +76,8 @@ const ByIngredient = () => {
       const resData = await res.json()
       const loadedRecipes: Recipe[] = [];
 
-      console.log('resData', resData)
-
-      for (const key in resData) {
+      for (const key in resData)
         loadedRecipes.push(resData[key])
-      }
 
       setRecipes(loadedRecipes)
     }
@@ -97,7 +92,6 @@ const ByIngredient = () => {
 
   const handleBack = () => setSelectedRecipe(undefined)
   const handleSelectedRecipe = (recipe: Recipe) => setSelectedRecipe(recipe)
-
 
   return (
     <div className='byIngredient'>
