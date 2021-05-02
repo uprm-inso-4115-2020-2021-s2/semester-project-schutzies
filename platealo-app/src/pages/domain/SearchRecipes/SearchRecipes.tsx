@@ -1,6 +1,6 @@
 import React from 'react'
 import './SearchRecipes.css'
-import RecipePreview from '../../../components/RecipePreview/RecipePreview'
+import RecipePreview from '../../../components/Recipes/RecipePreview'
 
 const SearchRecipes = () => {
   return (

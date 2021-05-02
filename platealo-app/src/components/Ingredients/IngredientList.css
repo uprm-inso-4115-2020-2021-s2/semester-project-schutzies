@@ -1,0 +1,24 @@
+.ingredientList__buttons {
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.ingredientList__chipButton.btn-primary {
+  color: #595959;
+  background-color: rgba(10, 193, 138, 0.30);
+  border-color: rgba(10, 193, 138, 0.30);
+  border-radius: 50px;
+  outline: none !important;
+  outline-offset: none !important;
+}
+
+.ingredientList__chipButton.btn-primary:hover {
+  color: white;
+  background-color: rgba(10, 193, 138, 0.90);
+  border-color: rgba(10, 193, 138, 0.90);
+}
+
+.ingredientList__chipButton.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  background-color: rgba(10, 193, 138, 0.90);
+  border-color: rgba(10, 193, 138, 0.90);
+}

@@ -1,4 +1,3 @@
-import React from 'react'
 import './RecipePreview.css'
 import Card from 'react-bootstrap/Card'
 import Ingredient from '../../models/Ingredient'
@@ -6,35 +5,34 @@ import Recipe from '../../models/Recipe'
 
 export interface RecipePreviewProps {
   recipe: Recipe;
-  handleRecipeView: any
+  onSelectedRecipe: Function
 }
 
-const ingredients = [
-  'Cheddar Cheese',
-  'Eggs',
-  'Ground Beef',
-  'Italian Sauce',
-  'Mozzarela Cheese',
-  'Oregano',
-  'Garlic',
-  'Cheddar Cheese',
-  'Eggs',
-  'Ground Beef',
-  'Italian Sauce',
-  'Mozzarela Cheese',
-  'Oregano',
-]
+// const ingredients = [
+//   'Cheddar Cheese',
+//   'Eggs',
+//   'Ground Beef',
+//   'Italian Sauce',
+//   'Mozzarela Cheese',
+//   'Oregano',
+//   'Garlic',
+//   'Cheddar Cheese',
+//   'Eggs',
+//   'Ground Beef',
+//   'Italian Sauce',
+//   'Mozzarela Cheese',
+//   'Oregano',
+// ]
+// const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa. In rutrum quis risus quis sollicitudin. Pellentesque non eros ante. Vestibulum sed tristique massa. Quisque et feugiat risus, eu tristique felis. Pellentesque habitant...'
 
-const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa. In rutrum quis risus quis sollicitudin. Pellentesque non eros ante. Vestibulum sed tristique massa. Quisque et feugiat risus, eu tristique felis. Pellentesque habitant...'
+const RecipePreview = ({ recipe, onSelectedRecipe }: RecipePreviewProps) => {
 
-// const RecipePreview = ({ recipe }: any) => {
-const RecipePreview = ({ recipe, handleRecipeView }: RecipePreviewProps) => {
   const truncate = (str: string) => {
     return (str === undefined) ? '' : str.substr(0, 181) + '...';
   }
 
   return (
-    <Card className='recipePreview' onClick={() => handleRecipeView(recipe)}>
+    <Card className='recipePreview' onClick={() => onSelectedRecipe(recipe)}>
       <div className='recipePreview__left'>
         <p className='text-center mt-3'>
           Ingredients

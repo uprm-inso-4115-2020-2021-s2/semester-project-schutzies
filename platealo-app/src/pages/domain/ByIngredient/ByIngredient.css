@@ -18,99 +18,16 @@
   border-radius: 10px;
 }
 
-.byIngredient__recipes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.recipePreview.card {
-  margin-top: 15px;
-}
-
-
-.byIngredient__chipButton span { padding: 0 9px 2px 0 }
-
-.byIngredient__buttons {
-  flex-wrap: wrap;
-  width: 90%;
-}
-
-.byIngredient__selectedButtons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* gap: 10px; */
-  grid-auto-rows: minmax(20px, auto);
-}
-
-
-.byIngredient__selectedIngredients {
-  width: 90%;
-}
-
-
 
 /** BUTTONS */
-
-
-.byIngredient__chipButton.btn-primary {
-  color: #595959;
-  background-color: rgba(10, 193, 138, 0.30);
-  border-color: rgba(10, 193, 138, 0.30);
-  border-radius: 50px;
-  outline: none !important;
-  outline-offset: none !important;
-}
-
 .btn:focus,.btn:active:focus,.btn.active:focus,
 .btn.focus,.btn:active.focus,.btn.active.focus {
     box-shadow: none !important;
     outline: none !important;
 }
 
-
-.byIngredient__chipButton.btn-primary:hover {
-  color: white;
-  background-color: rgba(10, 193, 138, 0.90);
-  border-color: rgba(10, 193, 138, 0.90);
-}
-
-.byIngredient__chipButton.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
-  background-color: rgba(10, 193, 138, 0.90);
-  border-color: rgba(10, 193, 138, 0.90);
-}
-
-
-.byIngredient__chipButton.btn-secondary {
-  border-radius: 10px;
-  color: #595959;
-  background-color: rgba(255, 155, 54, 0.30);
-  border-color: rgba(255, 155, 54, 0.30);
-}
-
-.byIngredient__chipButton.btn-secondary:hover {
-  background-color: white;
-  border-color: rgba(255, 155, 54, 0.90);
-
-  /* color: white;
-  background-color: rgba(255, 155, 54, 0.90);
-  border-color: rgba(255, 155, 54, 0.90); */
-}
-
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
   background-color: rgba(255, 155, 54, 0.90);
   border-color: rgba(255, 155, 54, 0.90);
-  color: white;
-}
-
-.byIngredient__searchRecipes.btn-secondary {
-  color: white;
-  background-color: rgba(255, 155, 54, 0.90);
-  border-color: rgba(255, 155, 54, 0.90);
-  border-radius: 10px;
-}
-
-
-.byIngredient__searchRecipes.btn-secondary:hover {
   color: white;
 }
