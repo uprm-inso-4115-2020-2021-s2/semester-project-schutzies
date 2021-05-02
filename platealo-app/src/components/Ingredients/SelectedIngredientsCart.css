@@ -1,0 +1,41 @@
+.selectedIngredientsCart__selectedButtons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* gap: 10px; */
+  grid-auto-rows: minmax(20px, auto);
+}
+
+.selectedIngredientsCart__selectedIngredients {
+  width: 90%;
+}
+
+.selectedIngredientsCart__chipButton span { padding: 0 9px 2px 0 }
+
+.selectedIngredientsCart__chipButton.btn-secondary:hover {
+  background-color: white;
+  border-color: rgba(255, 155, 54, 0.90);
+
+  /* color: white;
+  background-color: rgba(255, 155, 54, 0.90);
+  border-color: rgba(255, 155, 54, 0.90); */
+}
+
+
+.selectedIngredientsCart__chipButton.btn-secondary {
+  border-radius: 10px;
+  color: #595959;
+  background-color: rgba(255, 155, 54, 0.30);
+  border-color: rgba(255, 155, 54, 0.30);
+}
+
+.selectedIngredientsCart__searchRecipes.btn-secondary {
+  color: white;
+  background-color: rgba(255, 155, 54, 0.90);
+  border-color: rgba(255, 155, 54, 0.90);
+  border-radius: 10px;
+}
+
+
+.selectedIngredientsCart__searchRecipes.btn-secondary:hover {
+  color: white;
+}
